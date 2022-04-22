@@ -28,3 +28,6 @@ int main(){
 
     cout<<"Nueva hora: "<<hora.substr(0,2)<<":"<<stoi(hora.substr(3,2))+stoi(min)<<endl;
 }
+/*
+INCOMPLETO
+*/
