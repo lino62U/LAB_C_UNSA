@@ -9,7 +9,7 @@ y el apellido materno. Retornar su correo UNSA generado, el cual consiste de la
 primera letra del nombre, el apellido paterno completo, y la primera letra del apellido
 materno. (se agrega el dominio de la universidad al final).
 
-/*
+*/
 void minusculas(string &apePaterno){
     for (int i = 0; i < apePaterno.size(); i++){   
         apePaterno[i] =tolower(apePaterno[i]);
@@ -28,5 +28,5 @@ int main(){
    
     correo= nombre.substr(0,1) + apePaterno  + apMaterno.substr(0,1)+"@unsa.edu.pe";
     cout<<"Su correo es: "<<correo<<endl;
-
+    return 0;
 }
