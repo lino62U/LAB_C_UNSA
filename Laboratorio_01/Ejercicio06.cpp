@@ -9,7 +9,7 @@ using namespace std;
 6. Elabore un código que solicite un numero entre 100 < x < 999 y muestre el resultado
 en binario.
 
-/*
+*/
 string revertir(string bin){
     string newbin="";
     for(int i=bin.size();i>=0;i--)
