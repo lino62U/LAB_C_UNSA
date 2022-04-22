@@ -34,13 +34,12 @@ int main(){
             minutoaumentar=stoi(min)%60;
             h=h+horaaumentar;
             m=m+minutoaumentar;
-            cout<<"Nueva hora: "<<h<<":"<<m<<endl;
+            cout<<"Nueva hora: "<<h<<":"<<m<<amPM(h)<<endl;
 
         }  
     }
     else{
-        cout<<"Nueva hora: "<<hora.substr(0,2)<<":"<<stoi(hora.substr(3,2))+stoi(min)<<endl;
+        cout<<"Nueva hora: "<<hora.substr(0,2)<<":"<<stoi(hora.substr(3,2))+stoi(min)<<amPM(h)<<endl;
     }
-
-    
+  
 }
