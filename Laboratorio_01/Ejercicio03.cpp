@@ -26,7 +26,7 @@ int main(){
     h=stoi(hora.substr(0,2));  //TRANSFORMA EL STRING EN ENTERO
     m=stoi(hora.substr(3,2));
 
-    // MANO AQUI PONES EL CODIGO DE AUMENTAR LA HORA
+    
     if((m + stoi(min))>60){
         
         if(stoi(min)>60){
