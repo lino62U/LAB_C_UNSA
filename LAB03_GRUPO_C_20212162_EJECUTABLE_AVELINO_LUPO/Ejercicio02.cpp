@@ -4,12 +4,14 @@ realizar el cálculo utiliza una función llamada bisiesto. La función bisiesto
 año leído por teclado, comprueba si es o no bisiesto.
 
 */
+
 #include<iostream>
  
 using namespace std;
  
 void bisiesto(int a){
-    if(a%4==0)
+    
+    if(a%400==0 || (a%4==0 && a%100!=0))
         cout<<a<<" es bisiesto"<<endl;
     else
         cout<<a<<" no es bisiesto"<<endl;
