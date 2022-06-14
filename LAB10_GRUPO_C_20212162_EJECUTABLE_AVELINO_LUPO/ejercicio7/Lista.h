@@ -16,10 +16,10 @@ class Lista {
         void ingresarDato(Lista *&,int);
         void printList(Lista*&);
         Lista* getTail(Lista*&);
-        void quickSort(Lista*& raizRef);
+        void quickSort(Lista*&);
 
-        Lista* partition(Lista*& raiz, Lista*& end, Lista** newraiz, Lista** newEnd);
-        Lista* quickSortRecur(Lista* raiz, Lista* end);
+        Lista* partition(Lista*&, Lista*&, Lista*&, Lista*&);
+        Lista* quickSortRecur(Lista*, Lista*);
 };
  
 
@@ -61,7 +61,7 @@ Lista* Lista::getTail(Lista*& raiz){
 }
  
 // Particionar lista, con el ultimo elemento como pivote
-Lista* Lista::partition(Lista* &raiz, Lista* &nodoFinal, Lista** newraiz, Lista** newEnd){
+Lista* Lista::partition(Lista* &raiz, Lista* &nodoFinal, Lista*& newraiz, Lista*& newEnd){
     Lista * aux= raiz;  // aux es el iterador
     Lista *pivot = nodoFinal;
     Lista *nodoAnterior = NULL;
@@ -74,18 +74,18 @@ Lista* Lista::partition(Lista* &raiz, Lista* &nodoFinal, Lista** newraiz, Lista*
         if (aux->dato < pivot->dato) {
             // First node that has a value less than the
             // pivot - becomes the new raiz
-            if ((*newraiz) == NULL)
-                (*newraiz) = aux;
+            if (newraiz == NULL)
+                newraiz = aux;
  
             nodoAnterior = aux;
             aux = aux->sig;
         }
-        else // If cur node is greater than pivot
-        {
-            // Move cur node to sig of tail, and change
-            // tail
-            if (nodoAnterior)
+    // If cur node is greater than pivot Move aux node to sig of tail, and change tail
+        else {
+            
+            if (nodoAnterior!=NULL)
                 nodoAnterior->sig = aux->sig;
+            
             Lista* tmp = aux->sig;
             aux->sig = NULL;
             tail->sig = aux;
@@ -94,13 +94,13 @@ Lista* Lista::partition(Lista* &raiz, Lista* &nodoFinal, Lista** newraiz, Lista*
         }
     }
  
-    // If the pivot dato is the smallest element in the
+    // If the pivot data is the smallest element in the
     // current list, pivot becomes the raiz
-    if ((*newraiz) == NULL)
-        (*newraiz) = pivot;
+    if (newraiz == NULL)
+        newraiz = pivot;
  
     // Update newEnd to the current last node
-    (*newEnd) = tail;
+    newEnd = tail;
  
     // Return the pivot node
     return pivot;
@@ -116,7 +116,7 @@ Lista* Lista::quickSortRecur(Lista* raiz, Lista* nodoFinal){
  
     // Partition the list, newraiz and newEnd will be
     // updated by the partition function
-    Lista* pivot = partition(raiz, nodoFinal, &newraiz, &newEnd);
+    Lista* pivot = partition(raiz, nodoFinal, newraiz, newEnd);
  
     // If pivot is the smallest element - no need to recur
     // for the left part.
