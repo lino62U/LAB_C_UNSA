@@ -23,11 +23,11 @@ class C2
 };
 
 int main(){
-    std::shared_ptr<double> d;
+    std::shared_ptr<double> d = std::make_shared<double> (3.4);
 
     C1 c1(d);
     C2 c2(d);
-
+    
     cout<<"Numero de vece compartido: "<<d.use_count()<<endl;
     
     return 0;
