@@ -21,3 +21,14 @@ class C2
         virtual ~C2() { cout << "\nC2 destructor\n"; }
         void print() const { cout << "Valor " << *d; }
 };
+
+int main(){
+    std::shared_ptr<double> d;
+
+    C1 c1(d);
+    C2 c2(d);
+
+    cout<<"Numero de vece compartido: "<<d.use_count()<<endl;
+    
+    return 0;
+}
